@@ -4,10 +4,12 @@ This repository lets you check, with your own eyes, how Fixor's business-logic
 detectors behave on a realistic FastAPI app: which planted vulnerabilities they
 catch, and whether they stay silent on the safe routes sitting right beside them.
 
-**Auditable, not runnable.** The Fixor engine is closed-source, so you cannot
-re-run the scan yourself from this repo. What you *can* do — and what this repo
-is built for — is verify the test is fair and verify the results against the
-raw tool output. You don't need to trust our numbers; you need to read the code.
+**Auditable, and re-runnable from the main repo.** The Fixor engine is open
+source (MIT) at https://github.com/tornidomaroc-web/fixor, and the files in
+`corpus/` are byte-identical to its `fixtures/real-shape/fastapi-saas`. The logs
+here do not record which engine commit produced them, so a re-run on today's
+engine may not match them exactly. What this repo is built for is letting you
+verify the test is fair and verify the results against the raw tool output. You don't need to trust our numbers; you need to read the code.
 
 ## How to verify this yourself (no tools needed)
 
@@ -97,8 +99,9 @@ We disclose what this proof does **not** establish, plainly:
    recall on code it hasn't seen, and it is **not** a precision/recall figure. A
    real-repo true-negative (scanning a well-known, well-secured public project
    and showing zero findings) is the planned next step; it is not in this repo.
-4. **Auditable, not runnable.** Because the engine is private, you verify by
-   reading the corpus and cross-checking the logs, not by re-executing the scan.
+4. **Engine commit not recorded.** The engine is open source in the main Fixor
+   repo, but these logs do not name the commit that produced them, so the logs
+   and the corpus are the evidence here, not a re-run.
 
 ## Appendix: raw scan logs
 
